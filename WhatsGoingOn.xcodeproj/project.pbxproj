@@ -11,6 +11,11 @@
 		CCCC3E512A4D4F7F0024457B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCC3E502A4D4F7F0024457B /* ContentView.swift */; };
 		CCCC3E532A4D4F800024457B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCCC3E522A4D4F800024457B /* Assets.xcassets */; };
 		CCCC3E562A4D4F800024457B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCCC3E552A4D4F800024457B /* Preview Assets.xcassets */; };
+		CCCC3E5D2A4D50B30024457B /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCC3E5C2A4D50B30024457B /* ApiService.swift */; };
+		CCCC3E602A4D51570024457B /* CombineCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = CCCC3E5F2A4D51570024457B /* CombineCocoa */; };
+		CCCC3E622A4D593F0024457B /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCC3E612A4D593F0024457B /* ViewModel.swift */; };
+		CCCC3E652A4DE2000024457B /* Articles.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCC3E642A4DE2000024457B /* Articles.swift */; };
+		CCCC3E682A4DE4420024457B /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCC3E672A4DE4420024457B /* Endpoint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +24,10 @@
 		CCCC3E502A4D4F7F0024457B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		CCCC3E522A4D4F800024457B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CCCC3E552A4D4F800024457B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		CCCC3E5C2A4D50B30024457B /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
+		CCCC3E612A4D593F0024457B /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		CCCC3E642A4DE2000024457B /* Articles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Articles.swift; sourceTree = "<group>"; };
+		CCCC3E672A4DE4420024457B /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCCC3E602A4D51570024457B /* CombineCocoa in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,8 +61,11 @@
 		CCCC3E4D2A4D4F7F0024457B /* WhatsGoingOn */ = {
 			isa = PBXGroup;
 			children = (
+				CCCC3E662A4DE42E0024457B /* Services */,
+				CCCC3E632A4DE1EE0024457B /* Model */,
 				CCCC3E4E2A4D4F7F0024457B /* WhatsGoingOnApp.swift */,
 				CCCC3E502A4D4F7F0024457B /* ContentView.swift */,
+				CCCC3E612A4D593F0024457B /* ViewModel.swift */,
 				CCCC3E522A4D4F800024457B /* Assets.xcassets */,
 				CCCC3E542A4D4F800024457B /* Preview Content */,
 			);
@@ -65,6 +78,23 @@
 				CCCC3E552A4D4F800024457B /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		CCCC3E632A4DE1EE0024457B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CCCC3E642A4DE2000024457B /* Articles.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CCCC3E662A4DE42E0024457B /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				CCCC3E5C2A4D50B30024457B /* ApiService.swift */,
+				CCCC3E672A4DE4420024457B /* Endpoint.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +113,9 @@
 			dependencies = (
 			);
 			name = WhatsGoingOn;
+			packageProductDependencies = (
+				CCCC3E5F2A4D51570024457B /* CombineCocoa */,
+			);
 			productName = WhatsGoingOn;
 			productReference = CCCC3E4B2A4D4F7F0024457B /* WhatsGoingOn.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +144,9 @@
 				Base,
 			);
 			mainGroup = CCCC3E422A4D4F7F0024457B;
+			packageReferences = (
+				CCCC3E5E2A4D51570024457B /* XCRemoteSwiftPackageReference "CombineCocoa" */,
+			);
 			productRefGroup = CCCC3E4C2A4D4F7F0024457B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -138,7 +174,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				CCCC3E512A4D4F7F0024457B /* ContentView.swift in Sources */,
+				CCCC3E652A4DE2000024457B /* Articles.swift in Sources */,
 				CCCC3E4F2A4D4F7F0024457B /* WhatsGoingOnApp.swift in Sources */,
+				CCCC3E622A4D593F0024457B /* ViewModel.swift in Sources */,
+				CCCC3E682A4DE4420024457B /* Endpoint.swift in Sources */,
+				CCCC3E5D2A4D50B30024457B /* ApiService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,6 +377,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CCCC3E5E2A4D51570024457B /* XCRemoteSwiftPackageReference "CombineCocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/CombineCommunity/CombineCocoa.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.4.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CCCC3E5F2A4D51570024457B /* CombineCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CCCC3E5E2A4D51570024457B /* XCRemoteSwiftPackageReference "CombineCocoa" */;
+			productName = CombineCocoa;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CCCC3E432A4D4F7F0024457B /* Project object */;
 }

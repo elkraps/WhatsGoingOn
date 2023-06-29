@@ -8,14 +8,21 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @ObservedObject var viewModel = ViewModel()
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        NavigationView {
+            List {
+                ForEach(viewModel.news, id: \.id) { news in
+                    Text(news.description ?? "no name")
+                }
+            }
+            .listStyle(.plain)
+            .navigationTitle(Text("News"))
+            .searchable(text: .constant(""))
         }
-        .padding()
+        .onAppear(perform: viewModel.search)
     }
 }
 
