@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CC8CBB8C2A4F090F0089F9CB /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8CBB8B2A4F090F0089F9CB /* SearchView.swift */; };
 		CCCC3E4F2A4D4F7F0024457B /* WhatsGoingOnApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCC3E4E2A4D4F7F0024457B /* WhatsGoingOnApp.swift */; };
 		CCCC3E512A4D4F7F0024457B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCC3E502A4D4F7F0024457B /* ContentView.swift */; };
 		CCCC3E532A4D4F800024457B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCCC3E522A4D4F800024457B /* Assets.xcassets */; };
@@ -16,9 +17,12 @@
 		CCCC3E622A4D593F0024457B /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCC3E612A4D593F0024457B /* ViewModel.swift */; };
 		CCCC3E652A4DE2000024457B /* Articles.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCC3E642A4DE2000024457B /* Articles.swift */; };
 		CCCC3E682A4DE4420024457B /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCC3E672A4DE4420024457B /* Endpoint.swift */; };
+		CCCC3E6A2A4EA2810024457B /* ArticlesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCC3E692A4EA2810024457B /* ArticlesViewModel.swift */; };
+		CCCC3E6C2A4EA73A0024457B /* NewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCC3E6B2A4EA73A0024457B /* NewsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CC8CBB8B2A4F090F0089F9CB /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		CCCC3E4B2A4D4F7F0024457B /* WhatsGoingOn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhatsGoingOn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCCC3E4E2A4D4F7F0024457B /* WhatsGoingOnApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsGoingOnApp.swift; sourceTree = "<group>"; };
 		CCCC3E502A4D4F7F0024457B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -28,6 +32,8 @@
 		CCCC3E612A4D593F0024457B /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		CCCC3E642A4DE2000024457B /* Articles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Articles.swift; sourceTree = "<group>"; };
 		CCCC3E672A4DE4420024457B /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		CCCC3E692A4EA2810024457B /* ArticlesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesViewModel.swift; sourceTree = "<group>"; };
+		CCCC3E6B2A4EA73A0024457B /* NewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +70,9 @@
 				CCCC3E662A4DE42E0024457B /* Services */,
 				CCCC3E632A4DE1EE0024457B /* Model */,
 				CCCC3E4E2A4D4F7F0024457B /* WhatsGoingOnApp.swift */,
+				CCCC3E692A4EA2810024457B /* ArticlesViewModel.swift */,
+				CCCC3E6B2A4EA73A0024457B /* NewsView.swift */,
+				CC8CBB8B2A4F090F0089F9CB /* SearchView.swift */,
 				CCCC3E502A4D4F7F0024457B /* ContentView.swift */,
 				CCCC3E612A4D593F0024457B /* ViewModel.swift */,
 				CCCC3E522A4D4F800024457B /* Assets.xcassets */,
@@ -174,11 +183,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				CCCC3E512A4D4F7F0024457B /* ContentView.swift in Sources */,
+				CC8CBB8C2A4F090F0089F9CB /* SearchView.swift in Sources */,
+				CCCC3E6C2A4EA73A0024457B /* NewsView.swift in Sources */,
 				CCCC3E652A4DE2000024457B /* Articles.swift in Sources */,
 				CCCC3E4F2A4D4F7F0024457B /* WhatsGoingOnApp.swift in Sources */,
 				CCCC3E622A4D593F0024457B /* ViewModel.swift in Sources */,
 				CCCC3E682A4DE4420024457B /* Endpoint.swift in Sources */,
 				CCCC3E5D2A4D50B30024457B /* ApiService.swift in Sources */,
+				CCCC3E6A2A4EA2810024457B /* ArticlesViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

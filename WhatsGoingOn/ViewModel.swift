@@ -8,18 +8,18 @@
 import Foundation
 import Combine
 
-final class ViewModel: ObservableObject {
-    
-    @Published var news = [News]()
-    @Published var searchText = ""
-    
-    func search() {
-        let live = ApiService.live
-        
-        live.search("science")
-            .assign(to: &$news)
-        
-    }
-    
-    
-}
+//final class ViewModel: ObservableObject {
+//
+//    @Published var news = [News]()
+//    @Published var searchText = ""
+//
+//    func search() {
+//        let live = ApiService.live
+//
+//        live.search("science")
+//            .assign(to: &$news)
+//
+//    }
+//
+//
+//}

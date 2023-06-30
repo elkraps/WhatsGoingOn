@@ -9,20 +9,37 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @ObservedObject var viewModel = ViewModel()
+    @ObservedObject var articlesViewModel = ArticlesViewModel()
     
     var body: some View {
-        NavigationView {
-            List {
-                ForEach(viewModel.news, id: \.id) { news in
-                    Text(news.description ?? "no name")
-                }
+        VStack {
+            Picker("",selection: $articlesViewModel.indexEndpoint) {
+                Text("topHeadlines").tag(0)
+                Text("search").tag(1)
+                Text("from").tag(2)
             }
-            .listStyle(.plain)
-            .navigationTitle(Text("News"))
-            .searchable(text: .constant(""))
+            .pickerStyle(SegmentedPickerStyle())
+            
+            if articlesViewModel.indexEndpoint == 1 {
+                SearchView(searchTerm: self.$articlesViewModel.searchString)
+            }
+            
+            if articlesViewModel.indexEndpoint == 2 {
+                Picker("", selection: $articlesViewModel.searchString) {
+                    Text("sports").tag("sports")
+                    Text("health").tag("health")
+                    Text("science").tag("science")
+                    Text("business").tag("business")
+                    Text("technology").tag("technology")
+                    
+                }
+                .onAppear {
+                    self.articlesViewModel.searchString = "science"
+                }
+                .pickerStyle(SegmentedPickerStyle())
+            }
+            NewsView(articles: articlesViewModel.articles)
         }
-        .onAppear(perform: viewModel.search)
     }
 }
 
@@ -31,3 +48,6 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
+
+

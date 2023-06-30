@@ -14,7 +14,7 @@ struct NewsResponse: Codable {
 }
 
 struct Article: Codable, Identifiable {
-    var id = UUID()
+    let id = UUID()
     let title: String
     let description: String?
     let author: String?
