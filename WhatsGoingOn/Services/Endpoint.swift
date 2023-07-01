@@ -8,6 +8,7 @@
 import Foundation
 
 struct APIConstants {
+    
     static let apiKey: String = "9f78dcdbb6bc48c180272765f7b4e137"
     
     static let formatter: DateFormatter = {
@@ -89,11 +90,11 @@ enum Endpoint {
     }
     
     var locale: String {
-        Locale.current.language.languageCode?.identifier ?? "en"
+        return Locale.current.language.languageCode?.identifier ?? "en"
     }
     
     var region: String {
-        return Locale.current.language.languageCode?.identifier.lowercased() ?? "us"
+        return Locale.current.language.region?.identifier ?? "us"
     }
     
     init? (index: Int, text: String = "sports") {

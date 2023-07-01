@@ -19,11 +19,11 @@ struct ContentView: View {
                 Text("from").tag(2)
             }
             .pickerStyle(SegmentedPickerStyle())
-            
+
             if articlesViewModel.indexEndpoint == 1 {
                 SearchView(searchTerm: self.$articlesViewModel.searchString)
             }
-            
+
             if articlesViewModel.indexEndpoint == 2 {
                 Picker("", selection: $articlesViewModel.searchString) {
                     Text("sports").tag("sports")
@@ -31,11 +31,11 @@ struct ContentView: View {
                     Text("science").tag("science")
                     Text("business").tag("business")
                     Text("technology").tag("technology")
-                    
+
                 }
-                .onAppear {
+                .onAppear(perform: {
                     self.articlesViewModel.searchString = "science"
-                }
+                })
                 .pickerStyle(SegmentedPickerStyle())
             }
             NewsView(articles: articlesViewModel.articles)
