@@ -14,35 +14,35 @@ struct ArticleImage: View {
     var body: some View {
         Group {
             if !imageLoader.noData {
-             ZStack {
-                if self.imageLoader.image != nil {
-                    Image(uiImage: self.imageLoader.image!)
-                    .resizable()
-                    .scaledToFit()
-                } else {
-                    if imageLoader.url != nil {
-                        Rectangle()
-                        .foregroundColor(.gray)
-                        .frame(width: (UIScreen.main.bounds.width) * 0.75,
-                               height: UIScreen.main.bounds.width  * 0.6,
-                               alignment: .center)
-                        .scaledToFit()
-                        .overlay(
-                            Text("Loading...")
-                            .font(.footnote)
-                            .foregroundColor(.white)
-                            .rotationEffect(Angle(degrees: animate ? 60 : -60))
-                            .onAppear {
-                              withAnimation(Animation.easeInOut(duration: 1.0).repeatForever()) {
-                                            self.animate = true
-                              }
-                            }
-                         ) 
+                ZStack {
+                    if self.imageLoader.image != nil {
+                        Image(uiImage: self.imageLoader.image!)
+                            .resizable()
+                            .scaledToFit()
                     } else {
-                        EmptyView()
+                        if imageLoader.url != nil {
+                            Rectangle()
+                                .foregroundColor(.white)
+                                .frame(width: (UIScreen.main.bounds.width) * 0.75,
+                                       height: UIScreen.main.bounds.width  * 0.6,
+                                       alignment: .center)
+                                .scaledToFit()
+                                .overlay(
+                                    Text("Loading...")
+                                        .font(.footnote)
+                                        .foregroundColor(.black)
+                                        .rotationEffect(Angle(degrees: animate ? 60 : -60))
+                                        .onAppear {
+                                            withAnimation(Animation.easeInOut(duration: 1.0).repeatForever()) {
+                                                self.animate = true
+                                            }
+                                        }
+                                )
+                        } else {
+                            EmptyView()
+                        }
                     }
                 }
-             }
             } else {
                 EmptyView()
             }

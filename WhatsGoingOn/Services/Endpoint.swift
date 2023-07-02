@@ -9,7 +9,8 @@ import Foundation
 
 struct APIConstants {
     
-    static let apiKey: String = "9f78dcdbb6bc48c180272765f7b4e137"
+//    static let apiKey: String = "9f78dcdbb6bc48c180272765f7b4e137"
+    static let apiKey: String = "blablabla"
     
     static let formatter: DateFormatter = {
         let formatter = DateFormatter()

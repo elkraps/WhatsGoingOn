@@ -13,40 +13,56 @@ struct NewsView: View {
     @State var shouldPresent: Bool = false
     @State var articleURL: URL?
     var body: some View {
-        List {
-            ForEach(articles) { article in
-                VStack(alignment: .leading) {
-                    Text("\(article.title)").font(.title)
-                        
-                    Spacer()
-                    HStack {
-                        Text(APIConstants.formatter.string(from: article.publishedAt!))
-                            .opacity(0.5)
-                        Text("\(article.author != nil ? article.author! : "")")
-                        Text("\(article.source.name != nil ? article.source.name! : "")")
-                    }
-                    .foregroundColor(Color.black)
-                    ArticleImage(imageLoader: ImageLoaderCache.shared.loaderFor(
-                        article: article))
-                    
-                    Text("\( article.description != nil ? article.description! : "")")
-                        .lineLimit(3)
-                    
-                    Button(
-                        action: {
-//                            self.articleURL = URL(string: article.url!)
-//                            self.shouldPresent = true
-                        },
-                        label: {
-                            Text("Read")
-                                .foregroundColor(Color.blue)
-                        }
-                    )
-                    
-                    
+        
+        ForEach(articles) { article in
+            VStack(alignment: .leading) {
+                ArticleImage(imageLoader: ImageLoaderCache.shared.loaderFor(
+                    article: article))
+                //                    .frame(maxWidth: .infinity)
+                .padding(.top)
+                
+                
+                Text("\(article.source.name != nil ? article.source.name! : "")")
+                    .font(.custom("AlbertSans-Light", size: 15))
+                    .padding(4)
+                    .overlay(RoundedRectangle(cornerRadius: 50).stroke())
+                
+                Text("\(article.title)")
+                    .font(.custom("AlbertSans-Light", size: 28))
+                    .foregroundColor(Color(hex: "BB443D"))
+                    .lineLimit(2)
+                
+                
+                Spacer()
+                
+                HStack {
+                    Text(APIConstants.formatter.string(from: article.publishedAt!))
+                        .opacity(0.5)
+                    Text("|  \(article.author != nil ? article.author! : "")")
+                        .lineLimit(1)
+                    //Text("\(article.source.name != nil ? article.source.name! : "")")
                 }
+                .foregroundColor(Color.black)
+//                    Text("\( article.description != nil ? article.description! : "")")
+//                        .lineLimit(3)
+                
+                Button(
+                    action: {
+
+                    },
+                    label: {
+                        Text("Read")
+                            .foregroundColor(Color.blue)
+                    }
+                )
             }
+            .frame(maxWidth: .infinity, maxHeight: 400)
+            
+                
+            //                .background(Color.gray)
+            
         }
+        
     }
 }
 
