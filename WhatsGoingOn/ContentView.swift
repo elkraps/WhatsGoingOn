@@ -31,6 +31,7 @@ struct ContentView: View {
                             Image(systemName: "person.fill")
                                 .foregroundColor(.black)
                         }
+                        
                     }
                     
                         
@@ -61,7 +62,7 @@ struct ContentView: View {
                     }
                     NewsView(articles: articlesViewModel.articles)
                 }
-                .padding(10)
+                .padding(10) 
             }
         }
     }

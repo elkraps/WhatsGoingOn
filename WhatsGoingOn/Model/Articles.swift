@@ -7,6 +7,8 @@
 
 import Foundation
 
+fileprivate let relativeDateFormatter = RelativeDateTimeFormatter()
+
 struct NewsResponse: Codable {
     let status: String?
     let totalResults: Int?
@@ -21,6 +23,10 @@ struct Article: Codable, Identifiable {
     let urlToImage: String?
     let publishedAt: Date?
     let source: Source
+    
+    var captionText: String {
+        "\(source.name ?? "") | \(relativeDateFormatter.localizedString(for: publishedAt!, relativeTo: Date()))"
+    }
 }
 
 struct SourcesResponse: Codable {
