@@ -23,9 +23,21 @@ struct Article: Codable, Identifiable {
     let urlToImage: String?
     let publishedAt: Date?
     let source: Source
+    let url: String?
     
     var captionText: String {
         "\(source.name ?? "") | \(relativeDateFormatter.localizedString(for: publishedAt!, relativeTo: Date()))"
+    }
+    
+    var articleURL: URL {
+        URL(string: url ?? "https://jsoneditoronline.org/#left=local.fuleni")!
+    }
+    
+    var imageURL: URL? {
+        guard let urlToImage = urlToImage else {
+            return nil
+        }
+        return URL(string: urlToImage)
     }
 }
 
@@ -41,4 +53,17 @@ struct Source: Codable {
     let country: String?
     let category: String?
     let url: String?
+}
+
+extension Article {
+    static var previewData: [Article] {
+        let previewDataURL = Bundle.main.url(forResource: "news", withExtension: "json")
+        let data = try! Data(contentsOf: previewDataURL!)
+        
+        let jsonDecoder = JSONDecoder()
+        jsonDecoder.dateDecodingStrategy = .iso8601
+        
+        let apiResponse = try! jsonDecoder.decode(NewsResponse.self, from: data)
+        return apiResponse.articles 
+    }
 }

@@ -8,7 +8,6 @@
 import Foundation
 import Combine
 
-
 class ApiService {
     static let shared = ApiService()
     
@@ -35,6 +34,19 @@ class ApiService {
     
     func fetchSources(for country: String) -> AnyPublisher<[Source], Never> {
         guard let url = Endpoint.sources(country: country).absoluteURL else {
+            return Just([Source]()).eraseToAnyPublisher()
+        }
+
+        return fetch(url)
+            .map { (response: SourcesResponse) -> [Source] in
+                response.sources
+            }
+            .replaceError(with: [Source]())
+            .eraseToAnyPublisher()
+    }
+    
+    func fetchCategory(for category: String) -> AnyPublisher<[Source], Never> {
+        guard let url = Endpoint.articlesFromCategory(category).absoluteURL else {
             return Just([Source]()).eraseToAnyPublisher()
         }
 

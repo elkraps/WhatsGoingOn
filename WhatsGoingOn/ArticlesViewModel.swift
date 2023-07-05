@@ -13,6 +13,7 @@ final class ArticlesViewModel: ObservableObject {
     @Published var indexEndpoint: Int = 0
     @Published var searchString: String = "sports"
     
+    
     //output
     @Published var articles = [Article]()
     

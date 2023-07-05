@@ -11,6 +11,8 @@ struct ContentView: View {
     
     @ObservedObject var articlesViewModel = ArticlesViewModel()
     
+    let articles: [Article]
+    
     var body: some View {
         ZStack {
             Color(hex: "F5F0EA")
@@ -28,13 +30,33 @@ struct ContentView: View {
                         Button {
                             //
                         } label: {
-                            Image(systemName: "person.fill")
+                            Image(systemName: "person")
                                 .foregroundColor(.black)
+                                .imageScale(.large)
                         }
                         
                     }
                     
-                        
+                    
+//                    TabView(selection: $articlesViewModel.indexEndpoint) {
+//                        Text("topHeadlines")
+//                            .tabItem {
+//                                Label("hui", image: "star")
+//                            }
+//                            .tag(0)
+//                        Text("search")
+//                            .tabItem {
+//                                Label("hui", image: "star")
+//                            }
+//                            .tag(1)
+//                        Text("from")
+//                            .tabItem {
+//                                Label("hui", image: "star")
+//                            }
+//                            .tag(2)
+//
+//                    }
+                    
                     Picker("",selection: $articlesViewModel.indexEndpoint) {
                         Text("topHeadlines").tag(0)
                         Text("search").tag(1)
@@ -60,19 +82,24 @@ struct ContentView: View {
                         })
                         .pickerStyle(SegmentedPickerStyle())
                     }
-                    NewsView(articles: articlesViewModel.articles)
+                    
+                    MainNewsView(articles: articles)
+                    
                 }
-                .padding(10) 
+                
+                
             }
+            .padding(10)
         }
+//        .searchable(text: .constant(""))
     }
 }
+
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(articles: Article.previewData)
     }
 }
-
-
 

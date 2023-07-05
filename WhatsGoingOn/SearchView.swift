@@ -8,22 +8,29 @@
 import SwiftUI
 
 struct SearchView: View {
+    
+    @ObservedObject var articlesViewModel = ArticlesViewModel()
+    
     @Binding var searchTerm: String
     
     var body: some View {
-        HStack {
-            Image("search")
-            TextField("Search", text: self.$searchTerm)
+        ScrollView{
             
-            Image(systemName: "magnifyingglass")
-                .foregroundColor(.black)
-            
+            HStack {
+                Image("search")
+                TextField("Search", text: $articlesViewModel.searchString)
+                
+                Image(systemName: "magnifyingglass")
+                    .foregroundColor(.black)
+                
+                
+            }
+            .padding()
+            .background(Color.gray)
+            .cornerRadius(25)
+            .padding(.all, 15)
             
         }
-        .padding()
-        .background(Color.gray)
-        .cornerRadius(25)
-        .padding(.all, 15)
     }
 }
 
