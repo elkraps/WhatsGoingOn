@@ -9,13 +9,13 @@ import SwiftUI
 
 struct SearchListView: View {
     
-    @ObservedObject var articlesViewModel = ArticlesViewModel()
+    @ObservedObject var searchViewModel = ArticlesSearchViewModel()
     
     var body: some View {
         NavigationView {
             VStack {
-                SearchView(searchTerm: self.$articlesViewModel.searchString)
-                MainNewsView(articles: articlesViewModel.articles)
+                SearchView(searchTerm: self.$searchViewModel.searchString)
+                MainNewsView(articles: searchViewModel.articles)
             }
         }
     }

@@ -36,27 +36,7 @@ struct ContentView: View {
                         }
                         
                     }
-                    
-                    
-//                    TabView(selection: $articlesViewModel.indexEndpoint) {
-//                        Text("topHeadlines")
-//                            .tabItem {
-//                                Label("hui", image: "star")
-//                            }
-//                            .tag(0)
-//                        Text("search")
-//                            .tabItem {
-//                                Label("hui", image: "star")
-//                            }
-//                            .tag(1)
-//                        Text("from")
-//                            .tabItem {
-//                                Label("hui", image: "star")
-//                            }
-//                            .tag(2)
-//
-//                    }
-                    
+
                     Picker("",selection: $articlesViewModel.indexEndpoint) {
                         Text("topHeadlines").tag(0)
                         Text("search").tag(1)
