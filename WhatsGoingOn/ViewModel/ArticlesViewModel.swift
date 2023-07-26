@@ -37,4 +37,8 @@ final class ArticlesViewModel: ObservableObject {
     }
     
     private var cancellableSet: Set<AnyCancellable> = []
+    
+//    func addToFav(news: Article) {
+//        news.append(news)
+//    }
 }

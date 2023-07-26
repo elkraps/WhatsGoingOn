@@ -9,12 +9,9 @@ import SwiftUI
 
 @main
 struct WhatsGoingOnApp: App {
-    
-    
     var body: some Scene {
         WindowGroup {
-            ContentView(articles: Article.previewData)
-                
+            ContentView(articles: Article.previewData)  
         }
     }
 }

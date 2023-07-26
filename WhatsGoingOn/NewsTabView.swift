@@ -17,18 +17,18 @@ struct NewsTabView: View {
             TabView(selection: $articlesViewModel.indexEndpoint) {
                 MainNewsView(articles: articlesViewModel.articles)
                     .tabItem {
-                        Label("hui", image: "person")
+                        Label("main", image: "person")
                     }
                     .tag(0)
                 SearchListView()
                     .tabItem {
-                        Label("hui", image: "star")
+                        Label("search", image: "star")
                     }
                     .tag(1)
                 
-                Text("from")
+                FavouriteView()
                     .tabItem {
-                        Label("hui", image: "star")
+                        Label("fav", image: "star")
                     }
                     .tag(2)
                 
