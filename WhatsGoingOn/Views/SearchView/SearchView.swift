@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SearchView: View {
     
-    @ObservedObject var articlesViewModel = ArticlesViewModel()
+    @ObservedObject var articlesViewModel = ArticlesSearchViewModel()
     
     @Binding var searchTerm: String
     
@@ -29,6 +29,8 @@ struct SearchView: View {
             .background(Color.gray)
             .cornerRadius(25)
             .padding(.all, 15)
+            
+            
             
         }
     }

@@ -26,7 +26,7 @@ struct NewsTabView: View {
                     }
                     .tag(1)
                 
-                FavouriteView()
+                ContentView(articles: articlesViewModel.articles)
                     .tabItem {
                         Label("fav", image: "star")
                     }

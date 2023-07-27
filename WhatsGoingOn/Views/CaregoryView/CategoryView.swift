@@ -10,8 +10,8 @@ import SwiftUI
 struct CategoryView: View {
     
     @State private var selectedCategory: String = "General"
-    @ObservedObject var articlesViewModel = ArticlesViewModel()
-    
+//    @ObservedObject var articlesViewModel = ArticlesViewModel()
+    var article: [Article]
     
     var body: some View {
         VStack {
@@ -19,7 +19,7 @@ struct CategoryView: View {
                 .padding()
             
             List {
-                ForEach(articlesViewModel.articles) { item in
+                ForEach(article) { item in
                     NewsView(article: item)
                 }
             }
@@ -31,6 +31,6 @@ struct CategoryView: View {
 
 struct CategoryView_Previews: PreviewProvider {
     static var previews: some View {
-        CategoryView()
+        CategoryView(article: Article.previewData)
     }
 }

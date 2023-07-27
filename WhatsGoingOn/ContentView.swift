@@ -49,14 +49,15 @@ struct ContentView: View {
                     }
                     
                     if articlesViewModel.indexEndpoint == 2 {
-                        Picker("", selection: $articlesViewModel.searchString) {
-                            Text("sports").tag("sports")
-                            Text("health").tag("health")
-                            Text("science").tag("science")
-                            Text("business").tag("business")
-                            Text("technology").tag("technology")
-                            
-                        }
+                        CategoryScrollView(selectedCategory: $articlesViewModel.searchString)
+//                        Picker("", selection: $articlesViewModel.searchString) {
+//                            Text("sports").tag("sports")
+//                            Text("health").tag("health")
+//                            Text("science").tag("science")
+//                            Text("business").tag("business")
+//                            Text("technology").tag("technology")
+//
+//                        }
                         .onAppear(perform: {
                             self.articlesViewModel.searchString = "science"
                         })

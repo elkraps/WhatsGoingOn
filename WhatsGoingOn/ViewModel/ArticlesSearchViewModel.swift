@@ -14,14 +14,24 @@ final class ArticlesSearchViewModel: ObservableObject {
     
     @Published var articles = [Article]()
     
-    @Published var searchResults: [Article] = []
-    
-    init() {
+    private var validString: AnyPublisher<String, Never> {
         $searchString
-            
-//            .assign(to: &$searchResults)
+            .debounce(for: 0.1, scheduler: RunLoop.main)
+            .removeDuplicates()
+            .eraseToAnyPublisher()
     }
     
+    init(text: String = "") {
+        self.searchString = text
+        Publishers.Collect(upstream: validString)
+            .flatMap { (search) -> AnyPublisher<[Article], Never> in
+                self.articles = [Article]()
+                return ApiService.shared.fetchArticles(from: .search(searchFilter: text))
+            }
+            .assign(to: \.articles, on: self)
+            .store(in: &self.cancellableSet)
+    }
     
     private var cancellableSet: Set<AnyCancellable> = []
+    
 }

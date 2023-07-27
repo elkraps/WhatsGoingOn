@@ -14,7 +14,7 @@ struct SearchListView: View {
     var body: some View {
         NavigationView {
             VStack {
-                SearchView(searchTerm: self.$searchViewModel.searchString)
+                SearchView(searchTerm: $searchViewModel.searchString)
                 MainNewsView(articles: searchViewModel.articles)
             }
         }
